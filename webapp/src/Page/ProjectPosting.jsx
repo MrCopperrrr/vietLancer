@@ -78,7 +78,7 @@ const ProjectPosting = () => {
 
     const checkBackendConnection = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/projects');
+            const response = await fetch('https://vietlancerbackend.onrender.com/api/projects');
             const data = await response.json();
             return data.success === true;
         } catch (error) {
@@ -195,7 +195,7 @@ const ProjectPosting = () => {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch('http://localhost:3000/api/projects', {
+            const response = await fetch('https://vietlancerbackend.onrender.com/api/projects', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

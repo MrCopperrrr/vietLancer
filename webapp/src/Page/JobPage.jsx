@@ -42,7 +42,7 @@ export default function JobPage() {
 
     const fetchProjects = useCallback(async () => {
         try {
-            const res = await fetch("http://localhost:3000/api/projects");
+            const res = await fetch("https://vietlancerbackend.onrender.com/api/projects");
             const data = await res.json();
             if (data.success) {
                 // Log để kiểm tra dữ liệu về

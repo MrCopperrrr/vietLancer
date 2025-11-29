@@ -29,7 +29,7 @@ export default function SignIn() {
     const { signIn } = useAuth();
     const onSubmit = async (data) => {
         try {
-            const res = await fetch('http://localhost:3000/api/signin', {
+            const res = await fetch('https://vietlancerbackend.onrender.com/api/signin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

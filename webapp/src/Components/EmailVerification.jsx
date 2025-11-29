@@ -21,7 +21,7 @@ export default function EmailVerification({ email, onSuccess, onCancel }) {
         setResendLoading(true);
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post('http://localhost:3000/api/send-verification-code',
+            const response = await axios.post('https://vietlancerbackend.onrender.com/api/send-verification-code',
                 { target: email },
                 {
                     headers: { 'Authorization': `Bearer ${token}` }
@@ -49,7 +49,7 @@ export default function EmailVerification({ email, onSuccess, onCancel }) {
             const token = localStorage.getItem('token');
             const userEmail = email;  
 
-            const response = await axios.post('http://localhost:3000/api/confirm-verification-code',
+            const response = await axios.post('https://vietlancerbackend.onrender.com/api/confirm-verification-code',
                 { email: userEmail, code }, 
                 {
                     headers: { 'Authorization': `Bearer ${token}` }

@@ -49,7 +49,7 @@ export default function ApproveRequest() {
     // Fetch projects from API
     const fetchProjects = useCallback(async () => {
         try {
-            const res = await fetch("http://localhost:3000/api/projects");
+            const res = await fetch("https://vietlancerbackend.onrender.com/api/projects");
             const data = await res.json();
             if (data.success) setProjects(data.projects);
         } catch {
@@ -110,7 +110,7 @@ export default function ApproveRequest() {
 
     const handleApprove = async (projectId) => {
         try {
-            const res = await fetch("http://localhost:3000/api/approve", {
+            const res = await fetch("https://vietlancerbackend.onrender.com/api/approve", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ 
@@ -136,7 +136,7 @@ export default function ApproveRequest() {
         if (!reason) return; // Nếu hủy thì thôi
 
         try {
-            const res = await fetch("http://localhost:3000/api/reject", {
+            const res = await fetch("https://vietlancerbackend.onrender.com/api/reject", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ 

@@ -17,7 +17,7 @@ const NotificationBell = () => {
     
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:3000/api/notifications?userEmail=${encodeURIComponent(userEmail)}`);
+      const response = await fetch(`https://vietlancerbackend.onrender.com/api/notifications?userEmail=${encodeURIComponent(userEmail)}`);
       const data = await response.json();
       
       if (data.success) {
@@ -36,7 +36,7 @@ const NotificationBell = () => {
     if (!userEmail) return;
     
     try {
-      const response = await fetch(`http://localhost:3000/api/notifications/unread-count?userEmail=${encodeURIComponent(userEmail)}`);
+      const response = await fetch(`https://vietlancerbackend.onrender.com/api/notifications/unread-count?userEmail=${encodeURIComponent(userEmail)}`);
       const data = await response.json();
       
       if (data.success) {
@@ -50,7 +50,7 @@ const NotificationBell = () => {
   // Mark as read
   const markAsRead = async (notificationId) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/notifications/${notificationId}/read`, {
+      const response = await fetch(`https://vietlancerbackend.onrender.com/api/notifications/${notificationId}/read`, {
         method: 'PUT'
       });
       const data = await response.json();
@@ -71,7 +71,7 @@ const NotificationBell = () => {
     if (!userEmail) return;
     
     try {
-      const response = await fetch('http://localhost:3000/api/notifications/read-all', {
+      const response = await fetch('https://vietlancerbackend.onrender.com/api/notifications/read-all', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userEmail })
@@ -90,7 +90,7 @@ const NotificationBell = () => {
   // Delete notification
   const deleteNotification = async (notificationId) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/notifications/${notificationId}`, {
+      const response = await fetch(`https://vietlancerbackend.onrender.com/api/notifications/${notificationId}`, {
         method: 'DELETE'
       });
       const data = await response.json();

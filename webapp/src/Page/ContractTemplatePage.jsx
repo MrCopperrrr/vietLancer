@@ -10,7 +10,7 @@ export default function ContractTemplatePage() {
   useEffect(() => {
     const fetchTemplates = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/contract/list-templates");
+        const res = await fetch("https://vietlancerbackend.onrender.com/api/contract/list-templates");
         const data = await res.json();
         
         // Kiểm tra nếu data là mảng thì set, không thì log lỗi
@@ -30,7 +30,7 @@ export default function ContractTemplatePage() {
   const handleExport = async (template) => {
     try {
       // Gọi API export theo ID
-      const res = await fetch(`http://localhost:3000/api/contract/export/${template.id}`);
+      const res = await fetch(`https://vietlancerbackend.onrender.com/api/contract/export/${template.id}`);
       if (!res.ok) throw new Error("Export failed");
       
       const blob = await res.blob();
@@ -126,7 +126,7 @@ export default function ContractTemplatePage() {
               {/* Viewer Content */}
               <div className="flex-grow bg-gray-100 p-4 overflow-hidden">
                  {/* DocxViewer hiển thị file từ đường dẫn tĩnh */}
-                 <DocxViewer fileUrl={`http://localhost:3000${selected.url}`} />
+                 <DocxViewer fileUrl={`https://vietlancerbackend.onrender.com${selected.url}`} />
               </div>
 
               {/* Footer Modal */}

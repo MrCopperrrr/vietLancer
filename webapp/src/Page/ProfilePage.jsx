@@ -82,7 +82,7 @@ export default function ProfilePage() {
         if (showEmailVerification || user?.email_verify === 'verified') return;
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post('http://localhost:3000/api/send-verification-code',
+            const response = await axios.post('https://vietlancerbackend.onrender.com/api/send-verification-code',
                 { target: user.email },
                 {
                     headers: { 'Authorization': `Bearer ${token}` }
@@ -224,7 +224,7 @@ export default function ProfilePage() {
         };
         try {
             const token = localStorage.getItem('token');
-            const res = await fetch(`http://localhost:3000/api/profile/`, {
+            const res = await fetch(`https://vietlancerbackend.onrender.com/api/profile/`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

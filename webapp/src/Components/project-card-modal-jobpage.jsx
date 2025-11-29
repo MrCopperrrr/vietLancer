@@ -202,7 +202,7 @@ function ProjectCardModalJobPage({ project, onClose }) {
             if (!valid) return;
             setLoading(true);
             try {
-              const res = await fetch(`http://localhost:3000/api/projects/${project.id}/bid`, {
+              const res = await fetch(`https://vietlancerbackend.onrender.com/api/projects/${project.id}/bid`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

@@ -31,7 +31,7 @@ export default function ApproveBid() {
         if (!user || user.role !== 'admin') return;
         try {
             // Gọi API /all mà ta đã tạo trong bid.js
-            const res = await fetch("http://localhost:3000/api/projects/bids/all");
+            const res = await fetch("https://vietlancerbackend.onrender.com/api/projects/bids/all");
             const data = await res.json();
             
             if (data.success) {
@@ -81,7 +81,7 @@ export default function ApproveBid() {
     const handleApprove = async (bidId) => {
         if (!selectedBid) return;
         try {
-            await fetch(`http://localhost:3000/api/projects/${selectedBid.project_ID}/bid/${bidId}/approve`, {
+            await fetch(`https://vietlancerbackend.onrender.com/api/projects/${selectedBid.project_ID}/bid/${bidId}/approve`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 // ✅ Gửi status là 'accepted' (API backend sẽ tự convert thành 'Accepted')
@@ -98,7 +98,7 @@ export default function ApproveBid() {
     const handleReject = async (bidId) => {
         if (!selectedBid) return;
         try {
-            await fetch(`http://localhost:3000/api/projects/${selectedBid.project_ID}/bid/${bidId}/approve`, {
+            await fetch(`https://vietlancerbackend.onrender.com/api/projects/${selectedBid.project_ID}/bid/${bidId}/approve`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: 'rejected' })

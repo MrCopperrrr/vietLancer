@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import AuthContext from "../ContextAPI/AuthContext";
 import Footer from "../Components/Footer";
 
-const API_URL = "http://localhost:3000/api/projects";
+const API_URL = "https://vietlancerbackend.onrender.com/api/projects";
 
 export default function MyBidPage() {
   const { user } = useContext(AuthContext);

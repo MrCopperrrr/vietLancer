@@ -15,7 +15,7 @@ export default function MyProjectPage() {
     const fetchProjects = useCallback(async () => {
         if (!clientEmail) return;
         try {
-            const res = await fetch(`http://localhost:3000/api/projects/client/${clientEmail}`);
+            const res = await fetch(`https://vietlancerbackend.onrender.com/api/projects/client/${clientEmail}`);
             const data = await res.json();
             if (data.success) {
                 setClientProjects(data.projects);
@@ -34,7 +34,7 @@ export default function MyProjectPage() {
     const handleClientAction = async (projectId, bidId, action) => {
         try {
             if (action === 'accept') {
-                await fetch(`http://localhost:3000/api/projects/${projectId}/hire`, {
+                await fetch(`https://vietlancerbackend.onrender.com/api/projects/${projectId}/hire`, {
                     method: 'PATCH',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ hired_bid_ID: bidId })
@@ -43,7 +43,7 @@ export default function MyProjectPage() {
                 navigate('/ContractTemplatePage', { state: { projectId, bidId } });
             } else {
                 // Reject bid
-                await fetch(`http://localhost:3000/api/projects/${projectId}/bids/${bidId}`, {
+                await fetch(`https://vietlancerbackend.onrender.com/api/projects/${projectId}/bids/${bidId}`, {
                     method: 'PATCH',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ client_status: 'client_rejected' })

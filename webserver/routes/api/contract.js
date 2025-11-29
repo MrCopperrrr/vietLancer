@@ -82,7 +82,7 @@ router.get("/preview/:id", async (req, res) => {
     // 2. Tạo URL đầy đủ
     // Nếu bạn đang chạy localhost, hãy thay dòng này bằng domain thật hoặc ngrok url
     // Ví dụ: const DOMAIN = "https://my-website.com";
-    const DOMAIN = "http://localhost:3000"; 
+    const DOMAIN = "https://vietlancerbackend.onrender.com"; 
     const fullFileUrl = `${DOMAIN}${relativeUrl}`;
 
     // 3. Gửi trang HTML chứa iframe
